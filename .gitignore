@@ -1,3 +1,9 @@
+# Windows Stuff
+**/Thumbs.db
+
+# Quickly Start Server
+s
+
 # Jekyll Stuff
 _site/
 
