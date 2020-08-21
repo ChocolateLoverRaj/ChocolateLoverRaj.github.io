@@ -1,3 +1,6 @@
+# Jekyll Stuff
+_site/
+
 *.gem
 *.rbc
 /.config
