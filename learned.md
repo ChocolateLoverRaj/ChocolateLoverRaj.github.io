@@ -23,7 +23,7 @@ I also learned that tasks can be repeated multiple times. There was a `loop` blo
 When learning coding on code.org, I did many puzzles where you have to move a character through obstacles, going from a starting point to a destination point.
 
 ## [Khan Academy](https://khanacademy.org)
-![Example Screenshot](/assets/img/khan_academy.jpg)
+![Example Screenshot](/assets/img/khan-academy.jpg)
 
 When I was in 2nd grade, my friend talked about a thing called *javascript*, which he was learning on Khan Academy. I got interested, and I also started doing a course called [*Intro to JS: Drawing & Animation*](https://www.khanacademy.org/computing/computer-programming/programming). The course was a set of videos, challenges, quizzes, and projects. The course was based on drawing and animating shapes with javascript.
 
@@ -42,5 +42,8 @@ var draw = function(){
     x += 1;
 };
 ```
-Any function named `draw` was called automatically by Khan Academy, which made a circle go from left to right on the screen.
+Any function named `draw` was called automatically by Khan Academy, which made a circle go from left to right on the screen. I also learned how you can make a game by detecting mouse clicks and key presses.
 
+### Projects
+- [The Maze Roller Game](/projects/the-maze-roller-game)
+- [Digital Stick Picker](/projects/digital-stick-picker)
