@@ -6,7 +6,7 @@ permalink: /learned
 ---
 
 ## Things I Learned
-These are some programming related things that I learned.
+These are some programming related things that I learned from different courses.
 
 ## Hour of Code - [code.org](https://www.code.org)
 ![Example Screenshot](/assets/img/code.org.jpg)
@@ -63,6 +63,8 @@ I learned what html is, and how to set up a simple html page. I learned how the 
 ### Projects
 I didn't start any projects when I learned html, but I made some things later using what I learned.
 - [Idioms Game](/projects/idioms-game)
+- [Phases of the Moon Diagram](/projects/phases-of-the-moon-diagram)
+- [Escape Room Game](/projects/escape-room-game)
 
 ## HTML/JS: Making webpages interactive - [Khan Academy](https://khanacademy.org)
 ![Example Screenshot](/assets/img/html-js.jpg)
@@ -75,3 +77,35 @@ I learned that javascript can be put in an html `<script>` tag, and it can be us
 ### Projects
 I didn't do any projects specifically while I learned this course, but I used what I learned in this course in my future projects
 - [Idioms Game](/projects/idioms-game)
+- [Phases of the Moon Diagram](/projects/phases-of-the-moon-diagram)
+- [Escape Room Game](/projects/escape-room-game)
+
+## [Node.js Game Tutorial](https://scripterswar.com/tutorial/nodejs)
+
+After making some games with html, I wanted to make a multiplayer game. I had no idea how to do this, but I found a video series online about making multiplayer games. This is when I learned about Node.js, and how it's backend javascript.
+
+### What I learned
+I learned how to use `express` to set up a server and send html files. I also learned how to use `socket.io` to send messages between the server and client.
+
+### Projects
+I didn't make any projects from what I learned in this course.
+
+## [Node.js Master Class](https://www.pirple.com/)
+I took this course about Node.js. This course was mainly about how to do things *without* using npm packages.
+
+### What I learned
+I learned how to create a server with Node.js and handle requests. The first part of the course was about making a RESTful API, and then it also taught how to serve html files. When learning this course I understood more about what Node.js is, and how it works. One thing that was new to me was doing things asynchronously. Things like handling request and reading files are asynchronous, and I learned how Node.js manages asynchronous tasks while being single threaded. Another thing that I learned about is sending requests to other APIs, such as sending https requests to [mailgun](https://www.mailgun.com/) to send emails.
+
+### Projects
+- [Banana Games](/projects/banana-games)
+
+## Css Animations
+![Sample Screenshot](/assets/img/css-position-fixed.jpg)
+
+When I was looking something up, I learned about `position: fixed;` and `position: absolute;` in css. I made a lot of animated html pages with this. I also made animated SVG images.
+
+### What I learned
+I learned how to use the css `position` attribute, and make `<div>`s larger. I also knew how to make CSS animations. Another similar thing I learned about was animating SVG.
+
+### Projects
+- [Satisfying Animations](/projects/satisfying-animations)

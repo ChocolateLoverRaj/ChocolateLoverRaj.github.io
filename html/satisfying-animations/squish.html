@@ -1,0 +1,245 @@
+<html>
+<head>
+    <title>Squish</title>
+    <style>
+        @keyframes squish {
+            0% {
+                left: -400px;
+                height: 400px;
+                width: 200px;
+                top: calc(50% - 200px);
+            }
+            25% {
+                left: calc(50% - 100px);
+                width: 200px;
+                height: 400px;
+                top: calc(50% - 200px);
+            }
+            50% {
+                left: calc(50% - 200px);
+                width: 400px;
+                height: 50px;
+                top: calc(50% - 25px);
+            }
+            75% {
+                left: calc(50% - 200px);
+                width: 400px;
+                height: 50px;
+                top: calc(50% - 25px);
+            }
+            100% {
+                left: 100%;
+                width: 400px;
+                height: 50px;
+                top: calc(50% - 25px);
+            }
+        }
+        
+        @keyframes crush {
+            0% {
+                height: calc(50% - 200px);
+            }
+            25% {
+                height: calc(50% - 200px);
+            }
+            50% {
+                height: calc(50% - 25px);
+            }
+            75% {
+                height: calc(50% - 200px);
+            }
+            100% {
+                height: calc(50% - 200px);
+            }
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(360deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes punch {
+            0% {
+                display: none;
+                right: 100%;
+            }
+            50% {
+                display: initial;
+                right: 100%;
+            }
+            75% {
+                display: initial;
+                right: calc(50% + 200px);
+                opacity: 1;
+            }
+            90% {
+                opacity: 0;
+                display: none;
+            }
+            100% {
+                opacity: 0;
+                display: none;
+            }
+            
+        }
+        
+        html body{
+            padding: 0;
+            margin: 0;
+            background-color: beige;
+            cursor: none;
+        }
+        
+        #ball {
+            position: fixed;
+            border-radius: 10000px;
+            animation-name: squish;
+            animation-iteration-count: infinite;
+            animation-duration: 4s;
+            animation-direction: normal;
+            animation-timing-function: linear;
+            animation-fill-mode: both;
+            background-color: dodgerblue;    
+        }
+        
+        .crusher {
+            animation-name: crush;
+            animation-iteration-count: infinite;
+            animation-duration: 4s;
+            animation-direction: normal;
+            animation-fill-mode: both;
+            animation-timing-function: linear;
+            width: 500px;
+            left: calc(50% - 250px);
+        }
+        #top {
+            background-color: gray;
+            position: fixed;
+            top: 0;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+        #bottom {
+            background-color: gray;
+            position: fixed;
+            bottom: 0;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+        }
+        
+        .belt {
+            position: fixed;
+            height: 50px;
+            border-radius: 10000px;
+            background-color: darkgray;
+            border-color: black;
+            border: dashed;
+        }
+        #left {
+            width: calc(50% - 250px);
+            top: calc(50% + 200px);
+        }
+        #right {
+            right: 0;
+            width: calc(50% - 250px);
+            top: calc(50% + 25px);
+        }
+        
+        .wheel.circle {
+            position: fixed;
+            background-color: black;
+            border-color: white;
+            border: dashed;
+            height: 50px;
+            width: 50px;
+            border-radius: 1000000px;
+        }
+        .wheel.left {
+            animation-name: spin;
+            animation-iteration-count: infinite;
+            animation-duration: 4s;
+        }
+        .wheel.right {
+            animation-name: spin;
+            animation-iteration-count: infinite;
+            animation-duration: 4s;
+            animation-delay: 3s;
+        }
+        .wheel.circle.leftleft{
+            top: calc(50% + 200px);
+        }
+        .wheel.circle.leftright{
+            top: calc(50% + 200px);
+            left: calc(50% - 300px);
+        }
+        .wheel.circle.rightleft{
+            top: calc(50% + 25px);
+            right: calc(50% - 300px);
+        }
+        .wheel.circle.rightright{
+            top: calc(50% + 25px);
+            right: 0;
+        }
+        
+        .wheel.horizontal {
+            width: 50px;
+            height: 4px;
+            position: absolute;
+            top: 23px;
+            background-color: white;
+        }
+        .wheel.vertical {
+            width: 4px;
+            height: 50px;
+            position: absolute;
+            left: 23px;
+            background-color: white;
+        }
+        
+        #punch {
+            position: fixed;
+            height: 50px;
+            width: 50px;
+            border-top-right-radius: 10000px;
+            border-bottom-right-radius: 10000px;
+            background-color: tomato;
+            top: calc(50% - 25px);
+            animation-name: punch;
+            animation-duration: 4s;
+            animation-timing-function: ease-in;
+            animation-iteration-count: infinite;
+        }
+    </style>
+</head>
+<body>
+    <div id="ball"></div>
+    <div class="crusher" id="top"></div>
+    <div class="crusher" id="bottom"></div>
+    <div class="belt" id="left"></div>
+    <div class="belt" id="right"></div>
+    <div class="wheel circle leftleft left">
+        <div class="wheel horizontal"></div>
+        <div class="wheel vertical"></div>
+    </div>
+    <div class="wheel circle leftright left">
+        <div class="wheel horizontal"></div>
+        <div class="wheel vertical"></div>
+    </div>
+    <div class="wheel circle rightleft right">
+        <div class="wheel horizontal"></div>
+        <div class="wheel vertical"></div>
+    </div>
+    <div class="wheel circle rightright right">
+        <div class="wheel horizontal"></div>
+        <div class="wheel vertical"></div>
+    </div>
+    <div id="punch"></div>
+</body>
+</html>

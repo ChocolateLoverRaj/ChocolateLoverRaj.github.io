@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+
+<head>
+    <title>Game Over</title>
+    <style>
+        button {
+            background-color: green;
+            font-size: 50px;
+            border-radius: 50px;
+            border-color: orange;
+            vertical-align: middle;
+            color: white;
+        }
+
+        .disabled {
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Your Score</h1>
+        <h1 id="score">Score Unavailable</h1>
+        <h2 id="needed">? Points Needed To Win</h2>
+        <h3>If you have enough points to win please contact the agents in charge of this mission. There are still more
+            challenges that await you.</h3>
+        <br>
+        <button id="again">Try Again</button>
+    </center>
+
+    <script>
+        var neededScore = 5000;
+        var needed = document.getElementById("needed");
+        needed.innerHTML = neededScore + " Points Needed To Win";
+
+        var score = window.localStorage.getItem("score");
+        var scoreButton = document.getElementById("score");
+        scoreButton.innerHTML = score;
+
+        if (score >= neededScore) {
+            window.sessionStorage.removeItem("locked");
+        }
+
+        var again = document.getElementById("again");
+        again.addEventListener("click", function () {
+            if (score < neededScore) {
+                window.location.replace("./");
+            }
+            else {
+                if (prompt("You already beat the game. Please Contact Our Agents First. You will be rewarded for your success on your mission. If you insist, you can play again by typing 'I insist'") == 'I insist') {
+                    window.location.replace("./");
+                }
+            }
+        });
+    </script>
+</body>

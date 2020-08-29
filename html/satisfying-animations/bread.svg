@@ -1,0 +1,5 @@
+<svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path id="bread" d="M 500,995 L 50,995 C 50,995 5,995 5,950 L 5,300 C 5,300 5,250 50,250 C 50,250 5,250 5,150 C 5,150 5,50 300,50 C 300,50 400,50 400,75 C 400,75 400,5 600,5 C 600,5 995,5 995,100 L 995,150 C 995,150 995,250 950,250 C 950,250 995,250 995,350 L 995,950 C 995,950 995,995 950,995 L 500,995" stroke="brown" fill="tan" stroke-width="10" />
+    <animateTransform calcMode="linear" xlink:href="#bread" from="0,500,500" to="360,500,500" dur="1s" attributeName="transform" attributeType="XML" type="rotate" fill="freeze" begin="1s"/>
+    <!--animate calcMode="linear" xlink:href="#apple" begin="0s" attributeName="x" from="0" to="500" fill="freeze" dur="5s" /-->
+</svg>      

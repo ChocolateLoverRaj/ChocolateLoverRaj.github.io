@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phases Of The Moon</title>
+    <style>
+        #box1{
+            font-family:"Comic Sans MS", cursive, sans-serif;
+        }
+        
+    </style>
+</head>
+    <body>
+        <canvas id="myCanvas" width="1300" height="550"></canvas>
+        <br>
+        <div id="box1">
+            <p id="discription"></p>
+        </div>
+        <script>
+            var precision = 100;
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+            var drawMoon = function (x, y, radius, day) {
+                if(day >= 0 && day < 14){
+                    for(var i = 0; i < 360 * precision; i++){
+                        if(radius * Math.sin(i) / precision >= 0){
+                            ctx.beginPath();
+                            ctx.moveTo(x + radius * Math.sin(i), y + radius * Math.cos(i));
+                            ctx.lineTo(x + radius * Math.sin(i) * ((14 - day) / 7 - 1), y + radius * Math.cos(i))
+                            ctx.strokeStyle = "white";
+                            ctx.stroke();
+                        }
+                    }
+                }
+                if (day >= 14 && day < 28) {
+                    for (var i = 0; i < 360 * precision; i++) {
+                        if (radius * Math.sin(i) / precision >= 0) {
+                            ctx.beginPath();
+                            ctx.moveTo(x - radius * Math.sin(i), y + radius * Math.cos(i));
+                            ctx.lineTo(x + radius * Math.sin(i) * ((14 - day) / 7 + 1), y + radius * Math.cos(i))
+                            ctx.strokeStyle = "white";
+                            ctx.stroke();
+                        }
+                    }
+                }
+            };
+            
+            ctx.fillStyle = "black";
+            ctx.fillRect(400, 0, 900, 575);
+            ctx.beginPath();
+            ctx.arc(1300, 275, 275, 0.5 * Math.PI, 1.5 * Math.PI, false);
+            ctx.fillStyle = "yellow";
+            ctx.closePath();
+            ctx.fill();
+            var earthColor = ctx.createRadialGradient(300, 250, 10, 300, 250, 100);
+            earthColor.addColorStop(0, "blue");
+            earthColor.addColorStop(0.5, "green");
+            earthColor.addColorStop(0.75, "blue");
+            earthColor.addColorStop(0.9, "green");
+            earthColor.addColorStop(1, "blue");
+            var day = 0;
+            var message = "";
+            var speed = 0.1
+            var paused = false;
+            
+            document.getElementById("myCanvas").addEventListener("click", function(){
+                if(paused == true){
+                    paused = false;
+                }
+                else{
+                    paused = true;
+                }
+            });
+            
+            var draw = function(){
+                if(paused == false){
+                    day += speed;
+                }
+                if(day >= 28){
+                    day = 0;
+                }
+                ctx.fillStyle = "black";
+                ctx.fillRect(0, 0, 600, 575);
+                ctx.fillStyle = earthColor;
+                ctx.beginPath();
+                ctx.arc(300, 275, 100, 0 * Math.PI, 2 * Math.PI);
+                ctx.closePath();
+                ctx.fill();
+                drawMoon(300 + 200 * Math.cos(2 * Math.PI * (28 - day) / 28), 275 + 200 * Math.sin(2 * Math.PI * (28 - day) / 28), 50, day);
+                if(day == 0){
+                    message = "New Moon";
+                }
+                else if(day < 7){
+                    message = "Waxing Crescent";
+                }
+                else if(day == 7){
+                    message = "1st Quarter";
+                }
+                else if(day < 14){
+                    message = "Waxing Gibbous";
+                }
+                else if(day == 14){
+                    message = "Full Moon";
+                }
+                else if(day < 21){
+                    message = "Waning Gibbous";
+                }
+                else if(day == 21){
+                    message = "3rd Quarter";
+                }
+                else if(day < 28){
+                    message = "Waning Crescent";
+                }
+                else{
+                    message = "Loading...";
+                }
+                document.getElementById("discription").innerHTML = message;
+            }
+            
+            setInterval(draw, 10);
+        </script>
+    </body>
+</html>

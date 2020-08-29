@@ -1,0 +1,60 @@
+<svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Bars -->
+    <path id="bar1" d="M 150,-1000 h 100 v 1462.5 h -100 v -1450 M 150,537.5 h 100 v 1450 h -100 v -1450" stroke="none" fill="pink"/>
+    <path id="bar2" d="M 450,-1000 h 100 v 1462.5 h -100 v -1450 M 450,537.5 h 100 v 1450 h -100 v -1450" stroke="none" fill="pink"/>
+    <path id="bar3" d="M 750,-1000 h 100 v 1462.5 h -100 v -1450 M 750,537.5 h 100 v 1450 h -100 v -1450" stroke="none" fill="pink"/>
+    
+    <!-- Balls -->
+    <circle id="ball1" cx="0" cy="100" r="37.5" stroke="none" fill="gray" />
+    <circle id="ball2" cx="0" cy="200" r="37.5" stroke="none" fill="gray" />
+    <circle id="ball3" cx="0" cy="300" r="37.5" stroke="none" fill="gray" />
+    <circle id="ball4" cx="0" cy="400" r="37.5" stroke="none" fill="gray" />
+    <circle id="ball5" cx="0" cy="500" r="37.5" stroke="none" fill="gray" />
+    <circle id="ball6" cx="0" cy="600" r="37.5" stroke="none" fill="gray" />
+    <circle id="ball7" cx="0" cy="700" r="37.5" stroke="none" fill="gray" />
+    <circle id="ball8" cx="0" cy="800" r="37.5" stroke="none" fill="gray" />
+    <circle id="ball9" cx="0" cy="900" r="37.5" stroke="none" fill="gray" />
+    
+    <!-- Animations -->
+    <!-- Order of balls - 9, 3, 7, 5, 1, 6, 2, 8, 4 -->
+    <animateMotion xlink:href="#ball9" path="M 0,0 h 1800" begin="0s" dur="9s" repeatCount="1" calcMode="linear" />
+    <animateMotion xlink:href="#ball3" path="M 0,0 h 1800" begin="1s" dur="9s" repeatCount="1" calcMode="linear" />
+    <animateMotion xlink:href="#ball7" path="M 0,0 h 1800" begin="2s" dur="9s" repeatCount="1" calcMode="linear" />
+    <animateMotion xlink:href="#ball5" path="M 0,0 h 1800" begin="3s" dur="9s" repeatCount="1" calcMode="linear" />
+    <animateMotion xlink:href="#ball1" path="M 0,0 h 1800" begin="4s" dur="9s" repeatCount="1" calcMode="linear" />
+    <animateMotion xlink:href="#ball6" path="M 0,0 h 1800" begin="5s" dur="9s" repeatCount="1" calcMode="linear" />
+    <animateMotion xlink:href="#ball2" path="M 0,0 h 1800" begin="6s" dur="9s" repeatCount="1" calcMode="linear" />
+    <animateMotion xlink:href="#ball8" path="M 0,0 h 1800" begin="7s" dur="9s" repeatCount="1" calcMode="linear" />
+    <animateMotion xlink:href="#ball4" path="M 0,0 h 1800" begin="8s" dur="9s" repeatCount="1" calcMode="linear" />
+    
+    <!-- Move the bars -->
+    <animateMotion xlink:href="#bar1" path="M 0,-100 v +500" begin="0.375s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar1" path="M 0,+400 v -600" begin="1.375s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar1" path="M 0,-200 v +400" begin="2.375s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar1" path="M 0,+200 v -200" begin="3.375s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar1" path="M 0,+000 v -400" begin="4.375s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar1" path="M 0,-400 v +500" begin="5.375s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar1" path="M 0,+100 v -400" begin="6.375s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar1" path="M 0,-300 v +600" begin="7.375s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar1" path="M 0,+300 v -400" begin="8.375s" dur="0.125" fill="freeze" />
+    
+    <animateMotion xlink:href="#bar2" path="M 0,-100 v +500" begin="1.875s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar2" path="M 0,+400 v -600" begin="2.875s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar2" path="M 0,-200 v +400" begin="3.875s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar2" path="M 0,+200 v -200" begin="4.875s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar2" path="M 0,+000 v -400" begin="5.875s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar2" path="M 0,-400 v +500" begin="6.875s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar2" path="M 0,+100 v -400" begin="7.875s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar2" path="M 0,-300 v +600" begin="8.875s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar2" path="M 0,+300 v -400" begin="9.875s" dur="0.125" fill="freeze" />
+    
+    <animateMotion xlink:href="#bar3" path="M 0,-100 v +500" begin="03.375s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar3" path="M 0,+400 v -600" begin="04.375s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar3" path="M 0,-200 v +400" begin="05.375s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar3" path="M 0,+200 v -200" begin="06.375s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar3" path="M 0,+000 v -400" begin="07.375s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar3" path="M 0,-400 v +500" begin="08.375s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar3" path="M 0,+100 v -400" begin="09.375s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar3" path="M 0,-300 v +600" begin="10.375s" dur="0.125" fill="freeze" />
+    <animateMotion xlink:href="#bar3" path="M 0,+300 v -400" begin="11.375s" dur="0.125" fill="freeze" />
+</svg>

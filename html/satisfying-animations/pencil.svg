@@ -1,0 +1,109 @@
+<svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Definitions -->
+    <defs>
+        <!-- Backgound Color -->
+        <linearGradient id="bc" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+            <stop offset="12.5%" style="stop-color:rgb(200,0,255);stop-opacity:1" />
+            <stop offset="25%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+            <stop offset="37.5%" style="stop-color:rgb(200,0,255);stop-opacity:1" />
+            <stop offset="50%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+            <stop offset="62.5%" style="stop-color:rgb(200,0,255);stop-opacity:1" />
+            <stop offset="75%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+            <stop offset="87.5%" style="stop-color:rgb(200,0,255);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    <!-- The Background -->
+    <rect id="bg" x="0" y="0" width="1000" height="4000" fill="url(#bc)"></rect>
+    <!-- The Pencil -->
+    <g id="p1" opacity="0">
+        <!-- The Eraser -->
+        <rect x="250" y="485" rx="5" ry="5" width="50" height="30" fill="pink"></rect>
+        <!-- The main part -->
+        <rect x="300" y="485" width="400" height="30" fill="yellow"></rect>
+        <!-- The point -->
+        <g>
+            <!-- The wood -->
+            <polygon points="700,485 700,515 750,500" fill="brown"></polygon>
+            <!-- The tip -->
+            <polygon points="735,495.5 735,505.5 750,500" fill="black"></polygon>
+        </g>
+    </g>
+    <!-- The Pencil At Scene 2 -->
+    <g id="p2" opacity="0">
+        <!-- The Eraser -->
+        <rect x="235" y="250" rx="5" ry="5" width="30" height="50" fill="pink"></rect>
+        <!-- The main part -->
+        <rect x="235" y="300" width="30" height="400" fill="yellow"></rect>
+        <!-- The point -->
+        <g>
+            <!-- The wood -->
+            <polygon points="235,700 265,700 250,750" fill="brown"></polygon>
+            <!-- The tip -->
+            <polygon points="245.5,735 255.5,735 250,750" fill="black"></polygon>
+        </g>
+    </g>
+    <!-- The Pencil At Scene 3 -->
+    <g id="p3" opacity="0">
+        <!-- The Eraser -->
+        <rect x="700" y="485" rx="5" ry="5" width="50" height="30" fill="pink"></rect>
+        <!-- The main part -->
+        <rect x="300" y="485" width="400" height="30" fill="yellow"></rect>
+        <!-- The point -->
+        <g>
+            <!-- The wood -->
+            <polygon points="300,485 300,515 250,500" fill="brown"></polygon>
+            <!-- The tip -->
+            <polygon points="265,495.5 265,505.5 250,500" fill="black"></polygon>
+        </g>
+    </g>
+    <!-- The Pencil At Scene 4 -->
+    <g id="p4" opacity="0">
+        <!-- The Eraser -->
+        <rect x="735" y="250" rx="5" ry="5" width="30" height="50" fill="pink"></rect>
+        <!-- The main part -->
+        <rect x="735" y="300" width="30" height="400" fill="yellow"></rect>
+        <!-- The point -->
+        <g>
+            <!-- The wood -->
+            <polygon points="735,700 765,700 750,750" fill="brown"></polygon>
+            <!-- The tip -->
+            <polygon points="745.5,735 755.5,735 750,750" fill="black"></polygon>
+        </g>
+    </g>
+    <!-- Show 1 -->
+    <animate calcMode="discrete" xlink:href="#p1" id="s1" begin="0s;h4.end" attributeName="opacity" from="0" to="1" fill="freeze" dur="1ms" />
+    <!-- Move 1 up -->
+    <animateMotion calcMode="linear" xlink:href="#p1" begin="s1.end" path="M 0,0 v -250" fill="freeze" dur="1s" />
+    <!-- Rotate 1 -->
+    <animateTransform calcMode="linear" xlink:href="#p1" from="0,250,500" to="90,250,500" dur="1s" attributeName="transform" attributeType="XML" type="rotate" fill="freeze" id="r1" begin="s1.end"/>
+    <!-- Hide 1 -->
+    <animate calcMode="discrete" xlink:href="#p1" id="h1" begin="r1.end" attributeName="opacity" from="1" to="0" fill="freeze" dur="1ms" />
+    <!-- Show 2 -->
+    <animate calcMode="discrete" xlink:href="#p2" id="s2" begin="h1.end" attributeName="opacity" from="0" to="1" fill="freeze" dur="1ms" />
+    <!-- Move 2 up -->
+    <animateMotion calcMode="linear" xlink:href="#p2" begin="s2.end" path="M 0,0 v -250" fill="freeze" dur="1s" />
+    <!-- Rotate 2 -->
+    <animateTransform calcMode="linear" xlink:href="#p2" from="0,250,750" to="90,250,750  " dur="1s" attributeName="transform" attributeType="XML" type="rotate" fill="freeze" id="r2" begin="s2.end"/>
+    <!-- Hide 2 -->
+    <animate calcMode="discrete" xlink:href="#p2" id="h2" begin="r2.end" attributeName="opacity" from="1" to="0" fill="freeze" dur="1ms" />
+    <!-- Show 3 -->
+    <animate calcMode="discrete" xlink:href="#p3" id="s3" begin="h2.end" attributeName="opacity" from="0" to="1" fill="freeze" dur="1ms" />
+    <!-- Move 3 up -->
+    <animateMotion calcMode="linear" xlink:href="#p3" begin="s3.end" path="M 0,0 v -250" fill="freeze" dur="1s" />
+    <!-- Rotate 3 -->
+    <animateTransform calcMode="linear" xlink:href="#p3" from="0,750,500" to="-90,750,500" dur="1s" attributeName="transform" attributeType="XML" type="rotate" fill="freeze" id="r3" begin="s3.end"/>
+    <!-- Hide 3 -->
+    <animate calcMode="discrete" xlink:href="#p3" id="h3" begin="r3.end" attributeName="opacity" from="1" to="0" fill="freeze" dur="1ms" />
+    <!-- Show 4 -->
+    <animate calcMode="discrete" xlink:href="#p4" id="s4" begin="h3.end" attributeName="opacity" from="0" to="1" fill="freeze" dur="1ms" />
+    <!-- Move 4 up -->
+    <animateMotion calcMode="linear" xlink:href="#p4" begin="s4.end" path="M 0,0 v -250" fill="freeze" dur="1s" />
+    <!-- Rotate 4 -->
+    <animateTransform calcMode="linear" xlink:href="#p4" from="0,750,750" to="-90,750,750" dur="1s" attributeName="transform" attributeType="XML" type="rotate" fill="freeze" id="r4" begin="s4.end"/>
+    <!-- Hide 4 -->
+    <animate calcMode="discrete" xlink:href="#p4" id="h4" begin="r4.end" attributeName="opacity" from="1" to="0" fill="freeze" dur="1ms" />
+    <!-- Move the background -->
+    <animateMotion calcMode="linear" xlink:href="#bg" begin="s1.end" path="M 0,0 v -2000" fill="freeze" dur="8.016s" />
+</svg>

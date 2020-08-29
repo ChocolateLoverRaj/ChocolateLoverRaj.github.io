@@ -1,0 +1,246 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <link rel="shortcut icon" href="stop.png" />
+    <title>Stop The Robbers</title>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        var locked = true;
+
+        var code = "748617";
+
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        var canvasWidth = 1150;
+        var canvasHeight = canvasWidth / 2;
+        canvas.setAttribute("width", canvasWidth);
+        canvas.setAttribute("height", canvasHeight);
+
+        var makeImage = function (src) {
+            var image = document.createElement("img");
+            image.setAttribute("src", src);
+            return image;
+        };
+
+        var points = 0;
+
+        var paused = true;
+
+
+        if (window.sessionStorage.getItem("locked") == "false") {
+            locked = false;
+            paused = false;
+        }
+
+        var hearts = 3;
+        var heartSize = canvasHeight / 10;
+        var heartSpacing = canvasWidth / 300;
+
+        var playButton = {
+            x: 4 * (heartSize + heartSpacing),
+            y: 0,
+            size: heartSize,
+        }
+
+        canvas.onclick = function (e) {
+            if (e.clientX > playButton.x && e.clientX < playButton.x + playButton.size && e.clientY > playButton.y && e.clientY < playButton.y + playButton.size) {
+                if (paused) {
+                    if (locked) {
+                        if (prompt("Please Enter the Six Digit Code") == code) {
+                            paused = false;
+                            locked = false;
+
+                            window.sessionStorage.setItem("locked", "false");
+                        }
+                    }
+                    else {
+                        paused = false;
+                    }
+                }
+                else {
+                    paused = true;
+                }
+            }
+        };
+
+        var pause = makeImage("pause.png");
+        var start = makeImage("start.png");
+
+        var targetWidth = 100;
+        var targetHeight = 100;
+        var targets = [{}];
+
+        var targetSpawnTimerTime = 500;
+        var targetSpawnTimer = targetSpawnTimerTime;
+
+        var targetTypes = ["robber", "cop"];
+
+        var gameSpeed = 1;
+
+        var heart = makeImage("heart.svg");
+        var cop = makeImage("cop.png");
+        var robber = makeImage("robber.png");
+        var stop = makeImage("stop.png");
+        var donut = makeImage("donut.png");
+
+        var players = {
+            stop:
+            {
+                speed: 5,
+                size: 100,
+                y: 100,
+            },
+            donut:
+            {
+                speed: 5,
+                size: 100,
+                y: 300,
+            }
+        };
+
+        var keysPressed = [];
+        window.addEventListener("keydown", function (e) {
+            keysPressed[e.keyCode] = true;
+        });
+        window.addEventListener("keyup", function (e) {
+            keysPressed[e.keyCode] = false;
+        });
+
+        setInterval(function () {
+            if (!paused) {
+                if (hearts == 0) {
+                    window.localStorage.setItem("score", points);
+                    window.location.replace("./game-over");
+                }
+
+                //animate
+                gameSpeed += 0.001;
+
+                targetSpawnTimer -= gameSpeed;
+
+                for (var i = 0; i < targets.length; i++) {
+                    if (targets[i] != null) {
+                        targets[i].x -= gameSpeed / 2;
+
+                        if (targets[i].x < 0) {
+                            if (targets[i].type == "robber") {
+                                hearts--;
+                            }
+
+                            delete targets[i];
+                        }
+                    }
+                }
+
+                if (targetSpawnTimer <= 0) {
+                    targets.push({
+                        x: canvasWidth - targetWidth,
+                        y: Math.random() * (canvasHeight - targetHeight),
+                        type: targetTypes[Math.round(Math.random())],
+                    });
+
+                    targetSpawnTimer = targetSpawnTimerTime;
+                }
+
+                //control things
+                if (keysPressed[40]) {
+                    players.stop.y += players.stop.speed;
+                }
+                if (keysPressed[38]) {
+                    players.stop.y -= players.stop.speed;
+                }
+                if (keysPressed[17] || keysPressed[83]) {
+                    players.donut.y += players.donut.speed;
+                }
+                if (keysPressed[16] || keysPressed[87]) {
+                    players.donut.y -= players.donut.speed;
+                }
+
+                if (players.stop.y < 0) {
+                    players.stop.y = 0;
+                }
+                if (players.stop.y > canvasHeight - players.stop.size) {
+                    players.stop.y = canvasHeight - players.stop.size;
+                }
+                if (players.donut.y < 0) {
+                    players.donut.y = 0;
+                }
+                if (players.donut.y > canvasHeight - players.donut.size) {
+                    players.donut.y = canvasHeight - players.donut.size;
+                }
+
+                // points
+                for (var i = 0; i < targets.length; i++) {
+                    if (targets[i] != null) {
+                        if (targets[i].type == "cop") {
+                            if (targets[i].x < players.donut.size && (players.donut.y > targets[i].y && players.donut.y < targets[i].y + targetHeight || players.donut.y + players.donut.size < targets[i].y + targetHeight && players.donut.y + players.donut.size > targets[i].y || players.donut.y <= targets[i] && players.donut.y + players.donut.size >= targets[i].y + targetHeight || players.donut.y >= targets[i] && players.donut.y + players.donut.size <= targets[i].y + targetHeight)) {
+                                points += 100;
+
+                                delete targets[i];
+                            }
+                            else if (targets[i].x < players.stop.size && (players.stop.y > targets[i].y && players.stop.y < targets[i].y + targetHeight || players.stop.y + players.stop.size < targets[i].y + targetHeight && players.stop.y + players.stop.size > targets[i].y || players.stop.y <= targets[i] && players.stop.y + players.stop.size >= targets[i].y + targetHeight || players.stop.y >= targets[i] && players.stop.y + players.stop.size <= targets[i].y + targetHeight)) {
+                                points -= 100;
+
+                                delete targets[i];
+                            }
+                        }
+                        else {
+                            if (targets[i].x < players.stop.size && (players.stop.y > targets[i].y && players.stop.y < targets[i].y + targetHeight || players.stop.y + players.stop.size < targets[i].y + targetHeight && players.stop.y + players.stop.size > targets[i].y || players.stop.y <= targets[i] && players.stop.y + players.stop.size >= targets[i].y + targetHeight || players.stop.y >= targets[i] && players.stop.y + players.stop.size <= targets[i].y + targetHeight)) {
+                                points += 100;
+
+                                delete targets[i];
+                            }
+                            else if (targets[i].x < players.donut.size && (players.donut.y > targets[i].y && players.donut.y < targets[i].y + targetHeight || players.donut.y + players.donut.size < targets[i].y + targetHeight && players.donut.y + players.donut.size > targets[i].y || players.donut.y <= targets[i] && players.donut.y + players.donut.size >= targets[i].y + targetHeight || players.donut.y >= targets[i] && players.donut.y + players.donut.size <= targets[i].y + targetHeight) && !targets[i].penalized) {
+                                points -= 100;
+
+                                targets[i].penalized = true;
+                            }
+                        }
+                    }
+                }
+            }
+
+            //draw
+            ctx.fillStyle = "black";
+            ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+            for (var i = 0; i < hearts; i++) {
+                ctx.drawImage(heart, i * (heartSize + heartSpacing), 0, heartSize, heartSize);
+            }
+
+            if (paused) {
+                ctx.drawImage(start, playButton.x, playButton.y, playButton.size, playButton.size);
+            }
+            else {
+                ctx.drawImage(pause, playButton.x, playButton.y, playButton.size, playButton.size);
+            }
+
+            ctx.font = "30px Comic Sans MS";
+            ctx.fillStyle = "white";
+            ctx.fillText("Score: " + Math.round(points), 6 * (heartSize + heartSpacing), heartSize * 3 / 4);
+
+            //draw cops and robbers
+            for (let i = 0; i < targets.length; i++) {
+                if (targets[i] != null) {
+                    if (targets[i].type == "cop") {
+                        ctx.drawImage(cop, targets[i].x, targets[i].y, targetWidth, targetHeight);
+                    }
+                    else {
+                        ctx.drawImage(robber, targets[i].x, targets[i].y, targetWidth, targetHeight);
+                    }
+                }
+            }
+
+            //draw players
+            ctx.drawImage(donut, 0, players.donut.y, players.donut.size, players.donut.size);
+            ctx.drawImage(stop, 0, players.stop.y, players.stop.size, players.stop.size);
+        }, 10);
+            //Ben Was Here
+    </script>
+</body>
+
+</html>

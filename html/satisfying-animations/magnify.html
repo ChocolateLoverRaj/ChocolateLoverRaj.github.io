@@ -1,0 +1,136 @@
+<html>
+<head>
+    <title>Magnify If You Look Away</title>
+    <style>
+        @keyframes grow {
+            from {
+                width: 1750px;
+                height: 1750px;
+                top: calc(50% - 875px);
+                left: calc(50% - 875px);
+            }
+            to {
+                width: 1850px;
+                height: 1850px;
+                top: calc(50% - 925px);
+                left: calc(50% - 925px);
+            }
+        }
+
+        html, body {
+            padding: 0;
+            margin: 0;
+            background-color: aqua;
+            cursor: none;
+        }
+        #layers {
+            position: fixed;
+            border-radius: 100000px;
+            animation-name: grow;
+            animation-duration: 0.2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            animation-direction: reverse;
+            
+            background-color: black;
+        }
+        .even {
+            position: absolute;
+            border-radius: 10000px;
+            top: 25px;
+            right: 25px;
+            width: calc(100% - 50px);
+            height: calc(100% - 50px);
+            background-color: white;
+        }
+        .odd {
+            position: absolute;
+            border-radius: 10000px;
+            top: 25px;
+            right: 25px;
+            width: calc(100% - 50px);
+            height: calc(100% - 50px);
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="layers">
+        <div class="even">
+            <div class="odd">
+                <div class="even">
+                    <div class="odd">
+                        <div class="even">
+                            <div class="odd">
+                                <div class="even">
+                                    <div class="odd">
+                                        <div class="even">
+                                            <div class="odd">
+                                                <div class="even">
+                                                    <div class="odd">
+                                                        <div class="even">
+                                                            <div class="odd">
+                                                                <div class="even">
+                                                                    <div class="odd">
+                                                                        <div class="even">
+                                                                            <div class="odd">
+                                                                                <div class="even">
+                                                                                    <div class="odd">
+                                                                                        <div class="even">
+                                                                                            <div class="odd">
+                                                                                                <div class="even">
+                                                                                                    <div class="odd">
+                                                                                                        <div class="even">
+                                                                                                            <div class="odd">
+                                                                                                                <div class="even">
+                                                                                                                    <div class="odd">
+                                                                                                                        <div class="even">
+                                                                                                                            <div class="odd">
+                                                                                                                                <div class="even">
+                                                                                                                                    <div class="odd">
+                                                                                                                                        <div class="even">
+                                                                                                                                            <div class="odd">
+                                                                                                                                                <div class="even">
+                                                                                                                                                    <div class="odd">
+                                                                                                                                                        <div class="even">
+                                                                                                                                                            <div class="odd" id="extra"></div>
+                                                                                                                                                        </div>
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

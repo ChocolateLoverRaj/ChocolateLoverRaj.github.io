@@ -1,0 +1,9 @@
+<svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path d="M 250,500 L 750,500" stroke="purple" stroke-width="10"></path>
+    <g>
+        <animateMotion calcMode="linear" path="M 0,0 h 500 h -500" repeatCount="indefinite" dur="2s"></animateMotion>
+        <circle id="c" cx="250" cy="500" r="50"></circle>
+    </g>
+        <animate xlink:href="#c" id="r" begin="0s;l.end" attributeName="fill" from="red" to="blue" calcMode="linear" dur="1s"></animate>
+        <animate xlink:href="#c" id="l" begin="r.end" attributeName="fill" from="blue" to="red" calcMode="linear" dur="1s"></animate>
+</svg>

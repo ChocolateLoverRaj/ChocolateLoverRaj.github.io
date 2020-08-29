@@ -1,0 +1,178 @@
+<html>
+<head>
+    <title>Spiral</title>
+    <style>
+        @keyframes rainbow {
+            0% {
+                background-color: tomato;
+            }
+            24% {
+                background-color: tomato;
+            }
+            25% {
+                background-color: mediumSeaGreen;
+            }
+            49% {
+                background-color: mediumSeaGreen;
+            }
+            50% {
+                background-color: dodgerblue;
+            }
+            74% {
+                background-color: dodgerblue;
+            }
+            75% {
+                background-color: violet;
+            }
+            99% {
+                background-color: violet;
+            }
+            100% {
+                background-color: tomato;
+            }
+        }
+        
+        @keyframes height {
+            from {
+                height: 0;
+            }
+            to {
+                height: 50%;    
+            }
+        }
+        @keyframes width {
+            from {
+                width: 0;
+            }
+            to {
+                width: 50%;    
+            }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #top-left-pushee {
+            animation-name: height, rainbow;
+            animation-duration: 1s, 4s;
+            animation-iteration-count: infinite, infinite;
+            animation-delay: 0s, -2s;
+            animation-direction: reverse, normal;
+            animation-timing-function: linear, linear;
+            
+            position: absolute;
+            width: 50%;
+            height: 50%;
+        }
+        #top-left-agro {
+            animation-name: width, rainbow;
+            animation-duration: 1s, 4s;
+            animation-iteration-count: infinite, infinite;
+            animation-delay: 0s, -2s;
+            animation-direction: normal, normal;
+            animation-timing-function: linear, linear;
+            
+            position: absolute;
+            left: 50%;
+            height: 50%;
+        }
+        
+        #top-right-pushee {
+            animation-name: width, rainbow;
+            animation-duration: 1s, 4s;
+            animation-iteration-count: infinite, infinite;
+            animation-delay: 0s, -1s;
+            animation-direction: reverse, normal;
+            animation-timing-function: linear, linear;
+            
+            position: absolute;
+            right: 0;
+            width: 50%;
+            height: 50%;
+        }
+        #top-right-agro {
+            animation-name: height, rainbow;
+            animation-duration: 1s, 4s;
+            animation-iteration-count: infinite, infinite;
+            animation-delay: 0s, -1s;
+            animation-direction: normal, normal;
+            animation-timing-function: linear, linear;
+            
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 50%;
+        }
+        
+        #bottom-left-pushee {
+            animation-name: width, rainbow;
+            animation-duration: 1s, 4s;
+            animation-iteration-count: infinite, infinite;
+            animation-delay: 0s, -3s;
+            animation-direction: reverse, normal;
+            animation-timing-function: linear, linear;
+            
+            position: absolute;
+            top: 50%;
+            height: 50%;
+        }
+        #bottom-left-agro {
+            animation-name: height, rainbow;
+            animation-duration: 1s, 4s;
+            animation-iteration-count: infinite, infinite;
+            animation-delay: 0s, -3s;
+            animation-direction: normal, normal;
+            animation-timing-function: linear, linear;
+            
+            position: absolute;
+            bottom: 50%;
+            width: 50%;         
+        }
+        
+        #bottom-right-pushee {
+            animation-name: height, rainbow;
+            animation-duration: 1s, 4s;
+            animation-iteration-count: infinite, infinite;
+            animation-delay: 0s, 0s;
+            animation-direction: reverse, normal;
+            animation-timing-function: linear, linear;
+            
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 50%;
+        }
+        #bottom-right-agro {
+            animation-name: width, rainbow;
+            animation-duration: 1s, 4s;
+            animation-iteration-count: infinite, infinite;
+            animation-delay: 0s, 0s;
+            animation-direction: normal, normal;
+            animation-timing-function: linear, linear;
+            
+            position: absolute;
+            right: 50%;
+            top: 50%;
+            height: 50%;
+        }
+        html, body {
+            cursor: none;    
+        }
+    </style>
+</head>
+<body>
+    <div id="top-left-pushee"></div>
+    <div id="top-left-agro"></div>
+    
+    <div id="top-right-pushee"></div>
+    <div id="top-right-agro"></div>
+    
+    <div id="bottom-left-pushee"></div>
+    <div id="bottom-left-agro"></div>
+    
+    <div id="bottom-right-pushee"></div>
+    <div id="bottom-right-agro"></div>
+</body>
+</html>
